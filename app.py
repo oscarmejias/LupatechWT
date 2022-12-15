@@ -24,7 +24,7 @@ Well Testing!
 
 @st.experimental_memo(ttl=600)
 def get_data():
-    db = client.example_db
+    db = client.get_database('example_db')
     items = db.data1.find()
     items = list(items)  # make hashable for st.experimental_memo
     return items
