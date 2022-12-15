@@ -5,7 +5,7 @@ import streamlit as st
 #---------------MONGODB CONNECTION---------------
 @st.experimental_singleton
 def init_connection():
-    return MongoClient(**st.secrets["mongo"])
+    return MongoClient("mongodb+srv://st.secrets.db_username:st.secrets.db_pswd@st.secrets.cluster_name.bunlk55.mongodb.net/?retryWrites=true&w=majority")
 
 client = init_connection()
 
@@ -25,15 +25,14 @@ Well Testing!
 @st.experimental_memo(ttl=600)
 def get_data():
     db = client.get_database('example_db')
-    items = db.data1.find()
-    items = list(items)  # make hashable for st.experimental_memo
-    return items
+    data = list(db.data1.find()) # make hashable for st.experimental_memo
+    return data
 
-items = get_data()
+data = get_data()
 
 # Print results.
-for item in items:
-    st.write(f"{item['volumen']} has a :{item['masa']}:")
+for item in data:
+    st.write(f"{data['volumen']} has a :{data['masa']}:")
 
  
 
