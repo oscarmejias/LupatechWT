@@ -1,7 +1,6 @@
 #import pandas as pd
 from pymongo import MongoClient
 import streamlit as st
-import db
 
 #---------------MONGODB CONNECTION---------------
 @st.experimental_singleton
