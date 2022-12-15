@@ -6,7 +6,7 @@ import db
 #---------------MONGODB CONNECTION---------------
 @st.experimental_singleton
 def init_connection():
-    return MongoClient("mongodb+srv://oscarmejias:oscar123@cluster0.bunlk55.mongodb.net/?retryWrites=true&w=majority")
+    return MongoClient(**st.secrets["mongo"])
 
 client = init_connection()
 
