@@ -17,7 +17,7 @@ CONNECTION_STRING = "mongodb+srv://oscarmejias:oscar123@cluster0.bunlk55.mongodb
 client = MongoClient(CONNECTION_STRING)
 
 db = client.get_database('example_db')
-data = db.data1
+data = db.data2
 
 print(data.count_documents({}))
 
